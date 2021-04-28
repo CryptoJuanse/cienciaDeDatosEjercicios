@@ -10,6 +10,10 @@ section.encabezado{
     width: 100%
 }
 
+img {
+    height: 100%
+}
+
 td{
     text-align: center;
     background: white;
