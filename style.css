@@ -1,0 +1,38 @@
+section.encabezado{
+    background: #49CCF3;
+    color: black;
+    font-size: 100%;
+    text-align: center;
+    font-family: monospace;
+    border: 2px;
+    padding-top: 1%;
+    height: 100px;
+    width: 100%
+}
+
+td{
+    text-align: center;
+    background: white;
+}
+
+table{
+    font-size: 100%;
+    font-family: monospace;
+    align: center;
+}
+
+footer{
+    background: #49CCF3;                                                   
+    color: black;                                                     
+    font-size: 100%;                                                
+    font-family: monospace;                                               
+    border: 2px;
+    text-align: center;
+    table-align: center;
+    align: center;
+    height: 200px;
+    width: 100%;
+    position: center;
+    padding-top: 10px;
+}
+
