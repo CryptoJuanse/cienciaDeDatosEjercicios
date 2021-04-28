@@ -1,6 +1,10 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <img src="{{ url_for('static', filename='img/gif.gif') }}">
+
+    {% for table in tables %}
+            {{ table|safe }}
+    {% endfor %}
+
 {% endblock %}
 
