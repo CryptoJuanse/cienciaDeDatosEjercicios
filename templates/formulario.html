@@ -1,6 +1,27 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>Hello Word!</h1>
+    <h2>En este formulario podra realizar algunos filtros en el dataFrame</h2>
+    
+    <form action="" method="post">
+        <label for="opcion">
+        <input type="radio" id="opcion" name="opcion" value="1" />
+        Ver descripcion general <br>
+
+        <input type="radio" id="opcion" name="opcion" value="2" />
+        Ver los primeros datos
+        </label><br>
+
+        <input type="submit" id="send-signup" name="signup" value="Filtrar" />
+    </form>
+
+    {% if decision=='1' %}
+        <h3>Descripcion General</h3>
+    {% endif %}
+
+    {% if decision=='2' %}
+        <h3>Primeros datos</h3>
+    {% endif %}
+
 {% endblock %}
 

@@ -16,9 +16,13 @@ def index():
     return render_template('index.html', tables=[results_df.to_html(classes='data', header=True)])
 
 #Pagina del formulario
-@app.route('/formulario')
+@app.route('/formulario', methods=['GET', 'POST'])
 def show_formulario():
-    return render_template('formulario.html')
+    opcion = ''
+    if request.method == 'POST':
+        opcion = request.form['opcion']
+
+    return render_template('formulario.html', decision = opcion)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
