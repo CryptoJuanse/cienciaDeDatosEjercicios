@@ -26,8 +26,7 @@ table{
 }
 
 footer{
-    background: #49CCF3;                                                   
-    color: black;                                                     
+    background: #49CCF3;                                                      color: black;
     font-size: 100%;                                                
     font-family: monospace;                                               
     border: 2px;
@@ -40,3 +39,14 @@ footer{
     padding-top: 10px;
 }
 
+section.formulario{
+    background: #4BECA5;
+    color: black;
+    font-size: 100%;
+    font-family: monospace;           
+    text-align: center;          
+    height: 50px;      
+    width: 100%;  
+    position: center;
+    padding-top: 10px;
+}
