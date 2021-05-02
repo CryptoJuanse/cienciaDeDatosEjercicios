@@ -25,13 +25,28 @@
         <select id="vacunaT" name="vacunaT">
             <option name="PFIZER" value="1">PFIZER</option>
             <option name="SINOVAC" value="2">SINOVAC</option>
-        </select>
-        
+        </select><br>
+       
+            <!--Pregunta 5-->
         <input type="radio" id="opcion" name="opcion" value="5">
         Ver por número de resolución
         <select id="num_resolucion" name="num_resolucion">
             <option value="168">00000168</option>
+            <option value="195">00000195</option>
+            <option value="205">00000205</option>
+            <option value="267">00000267</option>
+            <option value="302">00000302</option>
+            <option value="330">00000330</option>
+            <option value="333">00000333</option>
+            <option value="342">00000342</option>
+            <option value="361">00000361</option>
+            <option value="364">00000364</option>
         </select><br>
+
+            <!--Pregunta 6 -->
+        <input type="radio" id="opcion" name="opcion" value="6">
+        Ver por fecha de resolución
+        <input type="date" id="fecha_resolucion" name="fecha_resolucion"><br>
 
             <!--Pregunta 7-->
         <input type="radio" id="opcion" name="opcion" value="7" />
@@ -64,12 +79,14 @@
         </select>
         </label><br>
 
-        <input type="submit" id="send-signup" name="signup" value="Filtrar" />
+        <br>
+
+        <input class="boton_personalizado" type="submit" id="send-signup" name="signup" value="Filtrar" />
 
     </form>
 
             <!--Mostrar resultados-->
-    {% if decision=='1' or decision=='2' or decision=='3' or decision=='4' or decision=='7'%}
+    {% if decision=='1' or decision=='2' or decision=='3' or decision=='4' or decision=='5' or decision=='6' or decision=='7'%}
         <h3> {{ title }} </h3>
         {% for table in tables %}
                 {{ table|safe }}

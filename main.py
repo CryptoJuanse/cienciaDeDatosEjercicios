@@ -25,10 +25,14 @@ def show_formulario():
     datos = vacunas
     titulo = ''
     vacunaT = ''
+    num_resolucion = ''
+    fecha_resolucion = ''
 
     if request.method == 'POST':
         opcion = request.form['opcion']
         vacunaT = request.form['vacunaT']
+        num_resolucion = request.form['num_resolucion']
+        fecha_resolucion = request.form['fecha_resolucion']
 
     #Logica de filtrado
     if opcion=='1':
@@ -46,6 +50,33 @@ def show_formulario():
             datos = datos[datos["laboratorio_vacuna"] == 'PFIZER']
         elif vacunaT =='2':
             datos = datos[datos["laboratorio_vacuna"] == 'SINOVAC']
+    elif opcion=='5':
+        titulo='Número de resolución'
+        if num_resolucion == '168':
+            datos = datos[datos["num_resolucion"] == '00000168']
+        elif num_resolucion == '195':
+            datos = datos[datos["num_resolucion"] == '00000195']
+        elif num_resolucion == '205':
+            datos = datos[datos["num_resolucion"] == '00000205']
+        elif num_resolucion == '267':
+            datos = datos[datos["num_resolucion"] == '00000267']
+        elif num_resolucion == '302':
+            datos = datos[datos["num_resolucion"] == '00000302']
+        elif num_resolucion == '330':
+            datos = datos[datos["num_resolucion"] == '00000330']
+        elif num_resolucion == '333':
+            datos = datos[datos["num_resolucion"] == '00000333']
+        elif num_resolucion == '342':
+            datos = datos[datos["num_resolucion"] == '00000342']
+        elif num_resolucion == '361':
+            datos = datos[datos["num_resolucion"] == '00000361']
+        elif num_resolucion == '364':
+            datos = datos[datos["num_resolucion"] == '00000364']
+
+    elif opcion=='6':
+        titulo = "Fecha de resolución"
+        datos = datos[datos["fecha_resolucion"] == str(fecha_resolucion)]
+
     elif opcion=='7':
         titulo = "Matriz con un rango de filas y columnas determinado"
         datos = datos.loc[int(request.form['fila1']):int(request.form['fila2']), 
