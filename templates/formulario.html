@@ -5,17 +5,21 @@
     
     <form action="" method="post">
         <label for="opcion">
+            <!--Pregunta 1-->
         <input type="radio" id="opcion" name="opcion" value="1" required/>
         Ver descripcion general <br>
 
+            <!--Pregunta 2-->
         <input type="radio" id="opcion" name="opcion" value="2" />
         Ver los primeros datos
         <input type="number" id="numeroH" name="numeroH" min="1" max="20" value="1"/> <br>
 
+            <!--Pregunta 3-->
         <input type="radio" id="opcion" name="opcion" value="3" />
         Ver los ultimos datos
         <input type="number" id="numeroT" name="numeroT" min="1" max="20" value="1"/><br> 
-        
+
+            <!--Pregunta 4-->
         <input type="radio" id="opcion" name="opcion" value="4">
         Ver por laboratorio vacuna
         <select id="vacunaT" name="vacunaT">
@@ -28,13 +32,44 @@
         <select id="num_resolucion" name="num_resolucion">
             <option value="168">00000168</option>
         </select><br>
+
+            <!--Pregunta 7-->
+        <input type="radio" id="opcion" name="opcion" value="7" />
+        Obtener un rango determinado de filas y columnas: <br>
+        Desde la fila <input type="number" id="fila1" name="fila1" min="0" max="514" value="0"/>
+        hasta la fila <input type="number" id="fila2" name="fila2" min="0" max="514" value="514"/> <br>
+        Desde la columna 
+        <select id="columna1" name="columna1">
+            <option value="num_resolucion">Numero de Resolucion</option>
+            <option value="fecha_resolucion">Fecha de Resolucion</option>
+            <option value="a_o">Año</option>
+            <option value="cod_territorio">Codigo de Territorio</option>
+            <option value="nom_territorio">Nombre del Territorio</option>
+            <option value="laboratorio_vacuna">Laboratorio de las vacunas</option>
+            <option value="cantidad">Cantidad</option>
+            <option value="uso_vacuna">Uso de las vacunas</option>
+            <option value="fecha_corte">Fecha de Corte</option>
+        </select>
+         hasta la columna 
+        <select id="columna2" name="columna2">
+            <option value="num_resolucion">Numero de Resolucion</option>
+            <option value="fecha_resolucion">Fecha de Resolucion</option>
+            <option value="a_o">Año</option>
+            <option value="cod_territorio">Codigo de Territorio</option>
+            <option value="nom_territorio">Nombre del Territorio</option>
+            <option value="laboratorio_vacuna">Laboratorio de las vacunas</option>
+            <option value="cantidad">Cantidad</option>
+            <option value="uso_vacuna">Uso de las vacunas</option>
+            <option value="fecha_corte" selected>Fecha de Corte</option>
+        </select>
         </label><br>
 
         <input type="submit" id="send-signup" name="signup" value="Filtrar" />
 
     </form>
 
-    {% if decision=='1' or decision=='2' or decision=='3' or decision=='4'%}
+            <!--Mostrar resultados-->
+    {% if decision=='1' or decision=='2' or decision=='3' or decision=='4' or decision=='7'%}
         <h3> {{ title }} </h3>
         {% for table in tables %}
                 {{ table|safe }}
