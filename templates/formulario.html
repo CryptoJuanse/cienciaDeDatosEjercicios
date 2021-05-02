@@ -14,13 +14,21 @@
 
         <input type="radio" id="opcion" name="opcion" value="3" />
         Ver los ultimos datos
-        <input type="number" id="numeroT" name="numeroT" min="1" max="20" value="1"/> <br>
+        <input type="number" id="numeroT" name="numeroT" min="1" max="20" value="1"/><br> 
+        
+        <input type="radio" id="opcion" name="opcion" value="4">
+        Ver por laboratorio vacuna
+        <select id="vacunaT" name="vacunaT">
+            <option name="PFIZER" value="1">PFIZER</option>
+            <option name="SINOVAC" value="2">SINOVAC</option>
+        </select><br>
         </label><br>
 
         <input type="submit" id="send-signup" name="signup" value="Filtrar" />
+
     </form>
 
-    {% if decision=='1' or decision=='2' or decision=='3' %}
+    {% if decision=='1' or decision=='2' or decision=='3' or decision=='4'%}
         <h3> {{ title }} </h3>
         {% for table in tables %}
                 {{ table|safe }}
