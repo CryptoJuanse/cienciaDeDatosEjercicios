@@ -3,11 +3,14 @@ from flask import render_template
 from flask import request
 from sodapy import Socrata
 import pandas as pd
+import dateutil
 
 #Obteniendo datos de vacunacion
 client = Socrata("www.datos.gov.co", None)
 results = client.get("sdvb-4x4j", limit=2000)
 vacunas = pd.DataFrame.from_records(results)
+vacunas['fecha_resolucion'] = vacunas['fecha_resolucion'].apply(dateutil.parser.parse)
+vacunas['fecha_corte'] = vacunas['fecha_corte'].apply(dateutil.parser.parse)
 
 app = Flask(__name__)
 #Pagina principal
