@@ -24,8 +24,11 @@ def show_formulario():
     opcion = ''
     datos = vacunas
     titulo = ''
+    vacunaT = ''
+
     if request.method == 'POST':
         opcion = request.form['opcion']
+        vacunaT = request.form['vacunaT']
 
     #Logica de filtrado
     if opcion=='1':
@@ -37,6 +40,13 @@ def show_formulario():
     elif opcion=='3':
         titulo = "Datos Finales"
         datos = datos.tail(int(request.form['numeroT']))
+    elif opcion=='4':
+        titulo = "Laboratorio Vacuna"
+        if vacunaT == '1':
+            datos = datos[datos["laboratorio_vacuna"] == 'PFIZER']
+        elif vacunaT =='2':
+            datos = datos[datos["laboratorio_vacuna"] == 'SINOVAC']
+
 
     return render_template('formulario.html', decision=opcion, title=titulo, tables=[datos.to_html(classes='data', header=True)])
 
