@@ -46,7 +46,10 @@ def show_formulario():
             datos = datos[datos["laboratorio_vacuna"] == 'PFIZER']
         elif vacunaT =='2':
             datos = datos[datos["laboratorio_vacuna"] == 'SINOVAC']
-
+    elif opcion=='7':
+        titulo = "Matriz con un rango de filas y columnas determinado"
+        datos = datos.loc[int(request.form['fila1']):int(request.form['fila2']), 
+                              request.form['columna1']:request.form['columna2']]
 
     return render_template('formulario.html', decision=opcion, title=titulo, tables=[datos.to_html(classes='data', header=True)])
 
