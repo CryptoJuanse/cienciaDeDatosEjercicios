@@ -27,12 +27,16 @@ def show_formulario():
     vacunaT = ''
     num_resolucion = ''
     fecha_resolucion = ''
+    can_min = ''
+    can_max = ''
 
     if request.method == 'POST':
         opcion = request.form['opcion']
         vacunaT = request.form['vacunaT']
         num_resolucion = request.form['num_resolucion']
         fecha_resolucion = request.form['fecha_resolucion']
+        can_min = request.form['can_min']
+        can_max = request.form['can_max']
 
     #Logica de filtrado
     if opcion=='1':
@@ -79,12 +83,17 @@ def show_formulario():
 
     elif opcion=='7':
         titulo = "Matriz con un rango de filas y columnas determinado"
-        datos = datos.loc[int(request.form['fila1']):int(request.form['fila2']), 
+        datos = datos.loc[int(request.form['fila1']):int(request.form['fila2']),
                               request.form['columna1']:request.form['columna2']]
     elif opcion=='8':
         titulo = "Filtrado por grupos"
         datos = datos.groupby([request.form['col1'], request.form['col2']])[request.form['col3']].count()
         datos = datos.to_frame()
+    elif opcion=='9':
+        titulo = "Cantidad"
+        datos_min = int(can_min) <= datos["cantidad"].astype(int)
+        datos_max = datos["cantidad"].astype(int) <= int(can_max)
+        datos = datos[(datos_min == True) == (datos_max == True)]
 
     return render_template('formulario.html', decision=opcion, title=titulo, tables=[datos.to_html(classes='data', header=True)])
 
