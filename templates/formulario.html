@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>En este formulario podra realizar algunos filtros en el dataFrame</h2>
+    <h2>En este formulario podra realizar algunos filtros en el DataFrame</h2>
     
     <form action="" method="post">
         <label for="opcion">
@@ -120,18 +120,14 @@
         </label><br>
 
         <br>
-
         <input class="boton_personalizado" type="submit" id="send-signup" name="signup" value="Filtrar" />
-
     </form>
 
-            <!--Mostrar resultados-->
-    {% if decision=='1' or decision=='2' or decision=='3' or decision=='4' or decision=='5' or decision=='6' or decision=='7' or decision=='8' %}
-        <h3> {{ title }} </h3>
-        {% for table in tables %}
-                {{ table|safe }}
-        {% endfor %}
-    {% endif %}
+        <!--Mostrar resultados-->
+    <h3> {{ title }} </h3>
+    {% for table in tables %}
+            {{ table|safe }}
+    {% endfor %}
 
 {% endblock %}
 

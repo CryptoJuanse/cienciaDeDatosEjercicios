@@ -36,8 +36,8 @@ def show_formulario():
 
     #Logica de filtrado
     if opcion=='1':
-        titulo = "Descripcion General"
-        datos = datos.describe()
+        titulo = "Columnas del DataFrame"
+        datos = pd.DataFrame(datos.columns)
     elif opcion=='2':
         titulo = "Datos iniciales"
         datos = datos.head(int(request.form['numeroH']))
