@@ -46,7 +46,7 @@
             <!--Pregunta 6 -->
         <input type="radio" id="opcion" name="opcion" value="6">
         Ver por fecha de resolución
-        <input type="date" id="fecha_resolucion" name="fecha_resolucion"><br>
+        <input type="date" id="fecha_resolucion" name="fecha_resolucion"><br><br>
 
             <!--Pregunta 7-->
         <input type="radio" id="opcion" name="opcion" value="7" />
@@ -76,6 +76,46 @@
             <option value="cantidad">Cantidad</option>
             <option value="uso_vacuna">Uso de las vacunas</option>
             <option value="fecha_corte" selected>Fecha de Corte</option>
+        </select> <br> <br>
+
+            <!--Pregunta 8-->
+        <input type="radio" id="opcion" name="opcion" value="8" />
+        Realizar filtrado utilizando 3 columnas especificas: <br>
+        Grupo principal
+        <select id="col1" name="col1">
+            <option value="num_resolucion">Numero de Resolucion</option>
+            <option value="fecha_resolucion">Fecha de Resolucion</option>
+            <option value="a_o">Año</option>
+            <option value="cod_territorio">Codigo de Territorio</option>
+            <option value="nom_territorio" selected>Nombre del Territorio</option>
+            <option value="laboratorio_vacuna">Laboratorio de las vacunas</option>
+            <option value="cantidad">Cantidad</option>
+            <option value="uso_vacuna">Uso de las vacunas</option>
+            <option value="fecha_corte">Fecha de Corte</option>
+        </select>
+        Subgrupos 
+        <select id="col2" name="col2">
+            <option value="num_resolucion">Numero de Resolucion</option>
+            <option value="fecha_resolucion">Fecha de Resolucion</option>
+            <option value="a_o">Año</option>
+            <option value="cod_territorio">Codigo de Territorio</option>
+            <option value="nom_territorio">Nombre del Territorio</option>
+            <option value="laboratorio_vacuna">Laboratorio de las vacunas</option>
+            <option value="cantidad">Cantidad</option>
+            <option value="uso_vacuna" selected>Uso de las vacunas</option>
+            <option value="fecha_corte">Fecha de Corte</option>
+        </select>
+        Datos a evaluar
+        <select id="col3" name="col3">
+            <option value="num_resolucion">Numero de Resolucion</option>
+            <option value="fecha_resolucion">Fecha de Resolucion</option>
+            <option value="a_o">Año</option>
+            <option value="cod_territorio">Codigo de Territorio</option>
+            <option value="nom_territorio">Nombre del Territorio</option>
+            <option value="laboratorio_vacuna">Laboratorio de las vacunas</option>
+            <option value="cantidad" selected>Cantidad</option>
+            <option value="uso_vacuna">Uso de las vacunas</option>
+            <option value="fecha_corte">Fecha de Corte</option>
         </select>
         </label><br>
 
@@ -86,7 +126,7 @@
     </form>
 
             <!--Mostrar resultados-->
-    {% if decision=='1' or decision=='2' or decision=='3' or decision=='4' or decision=='5' or decision=='6' or decision=='7'%}
+    {% if decision=='1' or decision=='2' or decision=='3' or decision=='4' or decision=='5' or decision=='6' or decision=='7' or decision=='8' %}
         <h3> {{ title }} </h3>
         {% for table in tables %}
                 {{ table|safe }}

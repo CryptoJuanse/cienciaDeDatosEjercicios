@@ -81,6 +81,10 @@ def show_formulario():
         titulo = "Matriz con un rango de filas y columnas determinado"
         datos = datos.loc[int(request.form['fila1']):int(request.form['fila2']), 
                               request.form['columna1']:request.form['columna2']]
+    elif opcion=='8':
+        titulo = "Filtrado por grupos"
+        datos = datos.groupby([request.form['col1'], request.form['col2']])[request.form['col3']].count()
+        datos = datos.to_frame()
 
     return render_template('formulario.html', decision=opcion, title=titulo, tables=[datos.to_html(classes='data', header=True)])
 
