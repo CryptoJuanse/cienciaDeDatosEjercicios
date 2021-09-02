@@ -1,6 +1,6 @@
-# Taller de Dsitribuciones
+# Taller de Distribuciones
 
-Taller donde se construyen diferentes distribuciones de datos, se gráfica en histogramas y se obtienen unas conclusiones.
+Taller donde se construyen diferentes distribuciones de datos, se grafica en histogramas y se obtienen unas conclusiones.
 
 ## Integrantes
 
